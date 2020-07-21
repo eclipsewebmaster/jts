@@ -9,6 +9,19 @@
     <name>${project.groupId}:${project.artifactId}</name>
     <packaging>bundle</packaging>
 
+    <dependencies>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-csv</artifactId>
+          <scope>test</scope>
+      </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

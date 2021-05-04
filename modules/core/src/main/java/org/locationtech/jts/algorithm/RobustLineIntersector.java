@@ -35,7 +35,7 @@ public class RobustLineIntersector
   static {
     setInterpolate(System.getProperty(INTERPOLATE_PROPERTY_NAME));
   }
-  static void setInterpolate(String interpolateCode) {
+  public static void setInterpolate(String interpolateCode) {
     if (interpolateCode == null) 
       return;
     isInterpolate = INTERPOLATE_DEFAULT;

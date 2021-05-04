@@ -11,6 +11,7 @@
  */
 package org.locationtech.jts.geom.util;
 
+import org.locationtech.jts.algorithm.RobustLineIntersector;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.Point;
@@ -27,6 +28,16 @@ public class GeometryFixerTest extends GeometryTestCase {
 	public GeometryFixerTest(String name) {
 		super(name);
 	}
+
+  @Override
+  protected void setUp() throws Exception {
+    RobustLineIntersector.setInterpolate("true");
+  }
+
+  @Override
+  protected void tearDown() throws Exception {
+    RobustLineIntersector.setInterpolate("false");
+  }
 	
   public void testPoint() {
     checkFix("POINT (0 0)", "POINT (0 0)");

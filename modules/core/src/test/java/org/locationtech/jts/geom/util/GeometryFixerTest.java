@@ -11,10 +11,10 @@
  */
 package org.locationtech.jts.geom.util;
 
-import org.locationtech.jts.algorithm.RobustLineIntersector;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.geom.ZInterpolating;
 
 import junit.textui.TestRunner;
 import test.jts.GeometryTestCase;
@@ -31,12 +31,12 @@ public class GeometryFixerTest extends GeometryTestCase {
 
   @Override
   protected void setUp() throws Exception {
-    RobustLineIntersector.setInterpolate("true");
+    ZInterpolating.setZInterpolating(true);
   }
 
   @Override
   protected void tearDown() throws Exception {
-    RobustLineIntersector.setInterpolate("false");
+    ZInterpolating.setZInterpolating(false);
   }
 	
   public void testPoint() {

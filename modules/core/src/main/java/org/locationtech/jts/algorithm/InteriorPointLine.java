@@ -70,7 +70,7 @@ public class InteriorPointLine {
    */
   private void addInterior(Geometry geom)
   {
-    if (geom instanceof LineString) {
+    if (geom.getDimension() == 1) {
       addInterior(geom.getCoordinates());
     }
     else if (geom instanceof GeometryCollection) {

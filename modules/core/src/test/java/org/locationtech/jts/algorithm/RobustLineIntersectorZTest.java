@@ -14,6 +14,7 @@ package org.locationtech.jts.algorithm;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.CoordinateXY;
 import org.locationtech.jts.geom.LineSegment;
+import org.locationtech.jts.geom.ZInterpolating;
 
 import junit.textui.TestRunner;
 import test.jts.GeometryTestCase;
@@ -33,7 +34,17 @@ public class RobustLineIntersectorZTest extends GeometryTestCase {
   public RobustLineIntersectorZTest(String name) {
     super(name);
   }
-  
+
+  @Override
+  protected void setUp() throws Exception {
+    ZInterpolating.setZInterpolating(true);
+  }
+
+  @Override
+  protected void tearDown() throws Exception {
+    ZInterpolating.setZInterpolating(false);
+  }
+
   public void testInterior() {
     checkIntersection( line(1, 1, 1, 3, 3, 3), line(1, 3, 10, 3, 1, 30), 
         pt(2, 2, 11));

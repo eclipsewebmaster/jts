@@ -14,6 +14,7 @@ package org.locationtech.jts.geom.util;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.geom.ZInterpolating;
 
 import junit.textui.TestRunner;
 import test.jts.GeometryTestCase;
@@ -27,6 +28,16 @@ public class GeometryFixerTest extends GeometryTestCase {
 	public GeometryFixerTest(String name) {
 		super(name);
 	}
+
+  @Override
+  protected void setUp() throws Exception {
+    ZInterpolating.setZInterpolating(true);
+  }
+
+  @Override
+  protected void tearDown() throws Exception {
+    ZInterpolating.setZInterpolating(false);
+  }
 	
   public void testPoint() {
     checkFix("POINT (0 0)", "POINT (0 0)");

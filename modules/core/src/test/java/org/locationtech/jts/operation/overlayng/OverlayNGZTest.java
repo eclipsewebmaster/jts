@@ -12,6 +12,7 @@
 package org.locationtech.jts.operation.overlayng;
 
 import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.ZInterpolating;
 
 import junit.textui.TestRunner;
 import test.jts.GeometryTestCase;
@@ -24,6 +25,16 @@ public class OverlayNGZTest extends GeometryTestCase
 
   public OverlayNGZTest(String name) {
     super(name);
+  }
+
+  @Override
+  protected void setUp() throws Exception {
+    ZInterpolating.setZInterpolating(true);
+  }
+
+  @Override
+  protected void tearDown() throws Exception {
+    ZInterpolating.setZInterpolating(false);
   }
   
   public void testPointXYPointDifference() {
